@@ -154,8 +154,6 @@ webhook:
   lookaheadInterval: ""
   replicaCount: 1
   certDir: /tmp/certs
-  # -- specifies whether validating webhooks should be created with failurePolicy: Fail or Ignore
-  failurePolicy: Fail
   # -- Specifies if webhook pod should use hostNetwork or not.
   hostNetwork: false
   image:
@@ -264,6 +262,12 @@ webhook:
       # requests:
       #   cpu: 10m
       #   memory: 32Mi
+
+  secretStoreValidation:
+    # -- Specifies whether validating webhooks should be created with failurePolicy: Fail or Ignore
+    failurePolicy: Fail
+    # -- Seconds to wait until validating webhooks fail
+    timeout: 5
 
 certController:
   # -- Specifies whether a certificate controller deployment be created.
